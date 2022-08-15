@@ -25,4 +25,4 @@ RUN apt-get update
 # RUN cd gow-api
 # RUN grails run-app
 
-# CMD ["grails", "run-app"]
+CMD ["grails", "run-app"]
