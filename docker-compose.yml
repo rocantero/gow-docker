@@ -14,6 +14,7 @@ services:
       - 5432:5432
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - /root/services/volumes/backups:/opt/backups
     environment:
       POSTGRES_PASSWORD: postgres
   web:
