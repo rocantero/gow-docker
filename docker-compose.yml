@@ -4,7 +4,7 @@ services:
     image: tomcat:7-jdk8-openjdk
     build: ./api
     volumes:
-      - /root/services/git/gow-api/build:/usr/local/tomcat/webapps
+      - /root/services/volumes/war:/usr/local/tomcat/webapps
     ports:
       - 8080:8080
     tty: true
@@ -21,7 +21,7 @@ services:
     image: nginx
     volumes:
       # - ./templates:/etc/nginx/templates
-      - web_build:/usr/share/nginx/html
+      - /root/services/volumes/web:/usr/share/nginx/html
     ports:
       - 80:80
     environment:
