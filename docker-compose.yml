@@ -1,14 +1,14 @@
 version: "3"
 services:
   api:
-    image: proactivehk/grails:3.3.2
+    image: tomcat:7-jdk8-openjdk
     build: ./api
     volumes:
-      - /root/services/git/gow-api:/app
+      - /root/services/git/gow-api/build:/usr/local/tomcat/webapps
     ports:
       - 8080:8080
     tty: true
-  gowdb:
+  db:
     image: postgres:9.6
     ports:
       - 5432:5432
@@ -27,18 +27,6 @@ services:
     environment:
       - NGINX_HOST=gow.com
       - NGINX_PORT=80
-  ember:
-    image: node:12
-    build: ./ember
-    volumes:
-      - /root/services/git/gow-web:/app
-      - web_build:/app/dist
-    tmpfs:
-      - /app/tmp
-    ports:
-      - 4200:4200
-      - 7020:7020
-      - 7357:7357
 
     
 volumes:
