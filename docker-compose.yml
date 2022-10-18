@@ -19,6 +19,7 @@ services:
       POSTGRES_PASSWORD: postgres
   web:
     image: nginx
+    build: ./web
     volumes:
       # - ./templates:/etc/nginx/templates
       - /root/services/volumes/web:/usr/share/nginx/html
